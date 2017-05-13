@@ -93,7 +93,7 @@ routes.get('/predict/:img_id', function (req, res) {
   data.getImage(req.params.img_id, img => {
     words.predict(new Buffer(img.data).toString('base64'), result =>{
       res.render('display', {
-        img: `data:${img.contentType};base64,${new Buffer(img.data).toString('base64')}`
+        img: `data:${img.contentType};base64,${new Buffer(img.data).toString('base64')}`,
         words: result
       });
   });
