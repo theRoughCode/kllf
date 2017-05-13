@@ -10,13 +10,15 @@ var app = new Clarifai.App(
 function predict(img_64, callback) {
   app.models.predict(Clarifai.GENERAL_MODEL, img_64).then(
     res => {
+      console.log(res);
       const outputs = [];
       var concepts;
-      for (var i in response.outputs){
-        concepts = response.outputs[i].data.concepts;
+      for (var i in res.outputs){
+        concepts = res.outputs[i].data.concepts;
         var keywords = [];
         concepts.forEach(concept => keywords.push([concept.name, concept.value]));
-      return callback(keywords);
+        return callback(keywords);
+      }
     }, err => {
       console.error(console.error(err));
       return callback(null);
