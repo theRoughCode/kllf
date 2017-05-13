@@ -2,26 +2,20 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>Flekx</title>
+    <title>Kllf</title>
     <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
   </head>
   <body>
-    <h1>Welcome to Flekx!</h1>
-    <ul style="list-style:none;">
-      <li>Item Name: {{ name }}</li>
-      <li>Item Description: {{ desc }}</li>
-      <li>Quantity: {{ qty }}</li>
-      <li>Category: {{ cat }}</li>
-      <li>Bid: {{ bid }}</li>
-      {{#if duration}}
-        <li>Duration: {{ duration }}</li>
-      {{/if}}
-      <li>Price: {{ price }}</li>
-    </ul>
+    <h1>Welcome to Kllf!</h1>
     <div class="img_div">
       <p>Image: </p>
       <img src="{{ img }}" />
     </div>
-    <button type="button" onclick="location.href='/list';">Back to list</button>
+    <ul style="list-style:none;">
+      {{#each words}}
+        <li>{{ this[0] }}: {{ this[1] }}</li>
+      {{/each}}
+    </ul>
+    <button type="button" onclick="location.href='/';">Back to home</button>
   </body>
 </html>
