@@ -1,14 +1,14 @@
-const clarifai = require('clarifai');
+const Clarifai = require('clarifai');
 require('dotenv').config();
 
 // instantiate new Clarifai app
-var app = new clarifai.App(
+var app = new Clarifai.App(
   process.env.CLARIFAI_ID,
   process.env.CLARIFAI_SECRET
 );
 
 function predict(img_64, callback) {
-  app.models.predict(clarifai.GENERAL_MODEL, img_64).then(
+  app.models.predict(Clarifai.GENERAL_MODEL, img_64).then(
     res => {
       return callback(res);
     }, err => {

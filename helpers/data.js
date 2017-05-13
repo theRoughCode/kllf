@@ -47,11 +47,6 @@ function deleteImage (id, callback) {
 }
 
 module.exports = {
-  addItem,
-  retrieveItem,
-  updateItem,
   uploadImage,
-  getImage,
-  getAll,
-  deleteItem
+  getImage
 }
