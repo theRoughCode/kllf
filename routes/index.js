@@ -46,49 +46,6 @@ routes.get('/img/:id', function(req, res) {
   });
 });
 
-// DISPLAY ALL ITEMS
-routes.get('/list', function (req, res) {
-  data.getAll(items => {
-    var item_arr = [];
-    var i = 0;
-    for (var key in items) {
-      var item = items[key];
-      item["id"] = key;
-      item_arr.push(item);
-      i++;
-    };
-    res.render('list', { items: item_arr });
-  });
-})
-
-routes.get('/delete/:id', function (req, res) {
-  data.deleteItem(req.params.id, err => {
-    console.log(err);
-    res.redirect('/list');
-  });
-})
-
-// UPDATE ITEM
-routes.post('/update/:id', function(req, res) {
-  data.updateItem(req.params.id, req.body, data => res.send(data));
-});
-
-routes.get('/test', function (req, res) {
-  data.getAll(items => {
-    var item_arr = [];
-    var i = 0;
-
-    async.each(items, (item, callback) => {
-      data.getImage(item.img_id, img => {
-        item["img"] = `data:${img.contentType};base64,${new Buffer(img.data).toString('base64')}`;
-        item_arr.push(item);
-        i++;
-        callback();
-      });
-    }, () => res.render('test', { items: item_arr }));
-  });
-})
-
 routes.get('/predict/:img_id', function (req, res) {
   data.getImage(req.params.img_id, img => {
     words.predict(new Buffer(img.data).toString('base64'), result =>{
@@ -96,6 +53,7 @@ routes.get('/predict/:img_id', function (req, res) {
         img: `data:${img.contentType};base64,${new Buffer(img.data).toString('base64')}`,
         words: result
       });
+      data.deleteImage(req.params.img_id, () => {});
     });
   });
 })
