@@ -7,16 +7,60 @@
   </head>
   <body>
     <div class="index">
-      <h1>Welcome to Kllif!</h1>
-      <h2>Upload Image</h2>
-      <form class="upload-form" action="/submit" method="POST" enctype="multipart/form-data">
-        <div class="section"><span>4</span>Picture</div>
+    <h1>Welcome to KLLF Housing!</h1>
+    <h2>Find Housing</h2>
+    <form class="upload-form" action="/submit" method="POST" enctype="multipart/form-data">
+      <div class="section"><span>1</span>Area &amp; Surroundings</div>
+      <div class="inner-wrap">
+        <label for="name">Area:</label>
+        <input type="text" name="name" />
+        <br />
+        <label for="desc">Surroundings:</label>
+        <input type="text" name="desc" />
+      </div>
 
-        <div class="inner-wrap" "picture" >
-          <input type="file" name="pic" accept="image/*" />
-        </div>
-        <input type="submit" value="Submit" id="submit" />
-      </form>
+      <div class="section"><span>2</span>Design &amp; Category</div>
+      <div class="inner-wrap">
+        <label for="qty">Design:(Suburban, Luxury, etc.)</label>
+        <input type="number" name="qty" />
+        <br />
+        <br />
+        <label for="category">Type of Housing:</label>
+        <input type="radio" name="category" value="furniture" id="cat-furniture" /> Apartment<br />
+        <input type="radio" name="category" value="renovation materials" id="cat-reno" /> Condo<br />
+        <input type="radio" name="category" value="appliances" id="cat-apps" /> Townhouse<br />
+        <input type="radio" name="category" value="home accessories" id="cat-home" /> Semi-detached<br />
+      </div>
+
+      <div class="section"><span>3</span>Bid &amp; Buy</div>
+        <div class="inner-wrap">
+        <label for="bid">Would you like to bid? </label>
+        <input type="radio" name="bid" value="yes" id="bid-yes" /> Yes<br />
+        <input type="radio" name="bid" value="no" id="bid-no" /> No
+        <br />
+        <br />
+        <label for="price" id="price">Price:</label>
+        <input type="number" name="price" step=".01" />
+      <div class="hide" id="duration">
+        <br />
+        <label for="duration">Duration of bid:</label>
+        <select name="duration">
+          <option value="1 hour">1 hour</option>
+          <option value="1 day">1 day</option>
+          <option value="3 days">3 days</option>
+          <option value="1 week">1 week</option>
+        </select>
+        <br />
+      </div>
     </div>
+
+      <div class="section"><span>4</span>Picture</div>
+
+      <div class="inner-wrap" "picture" >
+        <input type="file" name="pic" accept="image/*" />
+      </div>
+      <input type="submit" value="Submit" id="submit" />
+    </form>
+  </div>
   </body>
 </html>
