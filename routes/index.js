@@ -96,6 +96,7 @@ routes.get('/predict/:img_id', function (req, res) {
         img: `data:${img.contentType};base64,${new Buffer(img.data).toString('base64')}`,
         words: result
       });
+    });
   });
 })
 
